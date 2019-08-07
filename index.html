@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css"
+            rel="stylesheet" />
+        <link href="style.css"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+         
+
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo"><img src="./scoutlogo.png" height = "90px" width = "auto"> </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+                    <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
+                    <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+                    <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+        
+        <div class="container grid text-center mt-5">
+                <div class ="row">
+                    <h4>Select Neighborhood</h4> 
+                    <select id="nhdd" class="selectpicker img-rounded" data-live-search="true" multiple>
+                    </select>
+                </div>
+                <div class="row">
+                    <h4>Income: </h4>
+                    <input class="form-control" type="text" placeholder="$100,000">
+                </div>
+                <div class="row">
+                    <h4>Down Payment</h4>
+                    <input class="form-control" type="text" 
+                    placeholder="$100,000">
+                </div>
+                <div class="row">
+                    <h4>Interest Rate</h4>
+                    <input class="form-control" type="text" placeholder="3.0%">
+                </div>
+                <div class="row">
+                    <h4>Estimated Closing Costs</h4>
+                  
+                    <input class="form-control" type="text" placeholder="$200,000">
+                </div>
+                <div class="row">
+                    <h4>Mortgage Type</h4>
+                    <select  placeholder="15 year fixed img-rounded" class="selectpicker" multiple>
+                        <option value=15> 15 Year Fixed </option>
+                        <option value=30> 30 Year Fixed </option>
+
+                    </select>
+                </div>
+                <div class="row">
+                   
+                    <button class="btn waves-effect waves-light" type="submit" name="action"> Submit
+                    </button>
+                     </div>
+
+        
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js">
+       </script>
+     
+        <script src="./main.js"></script>
+    </body>
+</html>
+
