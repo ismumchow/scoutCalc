@@ -10,18 +10,19 @@
         <link href="style.css"
             rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap" rel="stylesheet">
          
 
     </head>
     <body>
+       
         <nav>
             <div class="nav-wrapper">
-                <a href="#!" class="brand-logo"><img src="./scoutlogo.png" height = "90px" width = "auto"> </a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="sass.html"><i class="material-icons">search</i></a></li>
-                    <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-                    <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
-                    <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+                <a href="#" class="brand-logo"><img src="./scoutlogo.png" height="90px" width="auto"></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a class="nav-item" href="sass.html">Sass</a></li>
+                    <li><a class="nav-item" href="badges.html">Components</a></li>
+                    <li><a class="nav-item" href="collapsible.html">JavaScript</a></li>
                 </ul>
             </div>
         </nav>
@@ -36,25 +37,25 @@
                 </div>
                 <div class="row">
                     <h4>Income: </h4>
-                    <input class="form-control" type="text" placeholder="$100,000">
+                    <input id="income" class="form-control" type="text" placeholder="$100,000">
                 </div>
                 <div class="row">
                     <h4>Down Payment</h4>
-                    <input class="form-control" type="text" 
+                    <input id="downpayment" class="form-control" type="text" 
                     placeholder="$100,000">
                 </div>
                 <div class="row">
                     <h4>Interest Rate</h4>
-                    <input class="form-control" type="text" placeholder="3.0%">
+                    <input id="interestrate" class="form-control" type="text" placeholder="3.0%">
                 </div>
                 <div class="row">
                     <h4>Estimated Closing Costs</h4>
                   
-                    <input class="form-control" type="text" placeholder="$200,000">
+                    <input id ="ecc" class="form-control" type="text" placeholder="$200,000">
                 </div>
                 <div class="row">
                     <h4>Mortgage Type</h4>
-                    <select  placeholder="15 year fixed img-rounded" class="selectpicker" multiple>
+                    <select id="mortgage" placeholder="15 year fixed img-rounded" class="selectpicker">
                         <option value=15> 15 Year Fixed </option>
                         <option value=30> 30 Year Fixed </option>
 
@@ -62,7 +63,7 @@
                 </div>
                 <div class="row">
                    
-                    <button class="btn waves-effect waves-light" type="submit" name="action"> Submit
+                    <button id="submit-btn" class="btn waves-effect waves-light" type="submit" name="action"> Submit
                     </button>
                      </div>
 
