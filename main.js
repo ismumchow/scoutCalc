@@ -50,7 +50,7 @@ $("#done").click(function (e) {
 
 $('.selectpicker').change(function () {
     var selectedItem = $('.selectpicker').val();
-    console.log( "neighborhoods are val is " + selectedItem);
+    console.log( "neighborhoods are val is " + selectedItem + " ");
     userSelection = selectedItem;
 
 
@@ -82,24 +82,26 @@ $('#submit-btn').click(function () {
         
         console.log(arrayString)
 
+    
 
-         var queryURL = "http://127.0.0.1:5000/prototype/" + arrayString + "/" + income + "/" + downPayment + "/" + interestRate + "/" + estClosingCost + "/" + mortgageType; 
+
+    var queryURL = "https://s2-dot-scout-243315.appspot.com/prototype/" + arrayString + "/" + income + "/" + downPayment + "/" + interestRate + "/" + estClosingCost + "/" + mortgageType; 
 
         console.log(queryURL);
 
 
         
-    // $.ajax({
-    //     url: queryURL,
-    //     method: 'GET'
-    // }).done(function (response) {
+        // $.ajax({
+        //     url: queryURL,
+        //     method: 'GET'
+        // }).done(function (response) {
 
 
 
-    //     console.log()
+        //     console.log()
 
 
-    // }
+        // }
 
 
 

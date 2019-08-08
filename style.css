@@ -1,5 +1,5 @@
-#nhdd {
-    border-radius: 25px 25px 25px 25px;
+.widths {
+    size: 200px;
 }
 
 .pt {
@@ -37,3 +37,15 @@
      font-family: 'Red Hat Display',
      sans-serif;
  }
+
+ .flex-item {
+     justify-content: center;
+ }
+
+ .marginl {
+     margin-left: 10%;
+ }
+
+#body {
+    background-color: #f1f1f1;
+}
