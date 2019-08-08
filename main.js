@@ -63,20 +63,43 @@ $('#mortgage').change(function () {
 });
 
 $('#submit-btn').click(function () {
+
         income = $("#income").val(); 
 
         downPayment = $("#downpayment").val(); 
         interestRate = $("#interestrate").val(); 
         estClosingCost = $("#ecc").val(); 
 
-        
-        
         console.log (userSelection);
         console.log(income);
         console.log(downPayment);
         console.log(interestRate);
         console.log(estClosingCost);
         console.log(mortgageType);
+
+        var arrayString = userSelection.join("&"); 
+
+        
+        console.log(arrayString)
+
+
+         var queryURL = "http://127.0.0.1:5000/prototype/" + arrayString + "/" + income + "/" + downPayment + "/" + interestRate + "/" + estClosingCost + "/" + mortgageType; 
+
+        console.log(queryURL);
+
+
+        
+    // $.ajax({
+    //     url: queryURL,
+    //     method: 'GET'
+    // }).done(function (response) {
+
+
+
+    //     console.log()
+
+
+    // }
 
 
 
