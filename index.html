@@ -32,7 +32,7 @@
         <div class="grid text-center ">
 
             <div class="row">
-                <div class="col s5 card-panel hoverable" style=" margin-left:5%; margin-top: 2%; height: 80vh;">
+                <div id="form" class="col s3 card-panel hoverable" style=" margin-left:5%; margin-top: 2%; height: 80vh;">
                     <div class="row" style=" margin-top:5%;"> 
                     <h3>Select Neighborhood</h3>
                     <select id="nhdd" class="selectpicker img-rounded" data-live-search="true" multiple>
@@ -40,19 +40,19 @@
                     </div>
                     <div class="row">
                             <h4>Income: </h4>
-                            <input id="income" class="form-control center-align" type="text" placeholder="$100,000" style="width: 250px; margin-left: 33%">
+                            <input id="income" class="form-control center-align" type="text" placeholder="$100,000" style="width: 250px; margin-left: 20%">
                     </div>
                     <div class="row">
                             <h4>Down Payment</h4>
-                            <input id="downpayment" class="form-control center-align" type="text" placeholder="$100,000" style="width: 250px; margin-left: 33%">
+                            <input id="downpayment" class="form-control center-align" type="text" placeholder="$100,000" style="width: 250px; margin-left: 20%">
                     </div>
                     <div class="row">
                             <h4>Interest Rate</h4>
-                            <input id="interestrate" class="form-control center-align" type="text" placeholder="3.0%" style="width: 250px; margin-left: 33%">
+                            <input id="interestrate" class="form-control center-align" type="text" placeholder="3.0%" style="width: 250px; margin-left: 20%">
                     </div>
                     <div class="row">
                             <h4>Estimated Closing Costs</h4>
-                            <input id="ecc" class="form-control center-align" type="text" placeholder="$200,000" style="width: 250px; margin-left: 33%">
+                            <input id="ecc" class="form-control center-align" type="text" placeholder="$200,000" style="width: 250px; margin-left: 20%">
                     </div>
                     <div class="row">
                             <h4>Mortgage Type</h4>
@@ -67,14 +67,14 @@
                             </button>
                     </div>
                 </div>
-                <div class="col s6">
-                    <div class=" card-panel hoverable text-center" style=" margin-left:5%; margin-top: 4%; height: 80vh ;"> 
-                    <h3> Filters</h3>
+                <div id="results" class="col s8">
+                    <div id="result-card" class=" card-panel hoverable text-center" style=" margin-left:5%; margin-top: 30px; height: 80vh ;"> 
+                    <h3 id="filter"> Filters</h3>
                     <br/> 
                     <br/> 
                     <div class ="col s3" style = "margin-top: -5%;"> 
                         <h4>Bed Rooms</h4>
-                        <select id="mortgage" placeholder="15 year " class="selectpicker">
+                        <select id="br" placeholder="15 year " class="selectpicker" multiple>
                             <option value=1> 1 Bed Room</option>
                             <option value=2> 2 Bed Rooms </option>
                         
@@ -82,11 +82,16 @@
                     </div>
                     <div class="col s3" style = "margin-left: 10%; margin-top: -5%;">
                         <h4>Home Type</h4>
-                        <select id="mortgage" placeholder="15 year " class="selectpicker">
+                        <select id="type" placeholder="15 year " class="selectpicker" multiple>
                             <option value="condo"> Condo </option>
                             <option value="townhouse"> Town House </option>
                         
                         </select>
+                    
+                    </div>
+
+                    <div class="col s3" style="margin-left: 10%; margin-top: -5%;">
+                        
                     
                     </div>
                     
