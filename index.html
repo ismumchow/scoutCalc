@@ -18,7 +18,7 @@
        
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo"><img src="./scoutlogo.png" height="90px" width="auto"></a>
+                <a href="./index.html" class="brand-logo"><img src="./scoutlogo.png" height="90px" width="auto"></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a class="nav-item" href="sass.html">Home</a></li>
                     <li><a class="nav-item" href="badges.html">About</a></li>
@@ -29,7 +29,7 @@
 
        
         
-        <div class="grid text-center ">
+        <div class="grid text-center jakson ">
 
             <div class="row">
                 <div id="form" class="col s3 card-panel hoverable" style=" margin-left:5%; margin-top: 2%; height: 80vh;">
@@ -68,47 +68,82 @@
                     </div>
                 </div>
                 <div id="results" class="col s8">
-                    <div id="result-card" class=" card-panel hoverable text-center" style=" margin-left:5%; margin-top: 30px; height: 80vh ;"> 
+                    <div id="result-card" class=" card-panel hoverable text-center" style=" margin-left:5%; margin-top: 30px; height: auto ;"> 
                     <h3 id="filter"> Filters</h3>
                     <br/> 
                     <br/> 
-                    <div class ="col s3" style = "margin-top: -5%;"> 
+                    <div class="row"> 
+                    <div class ="col s2" style = "margin-top: -5%;"> 
                         <h4>Bed Rooms</h4>
-                        <select id="br" placeholder="15 year " class="selectpicker" multiple>
+                        <select id="br" placeholder="15 year " class="selectpicker" data-width="fit" multiple >
                             <option value=1> 1 Bed Room</option>
                             <option value=2> 2 Bed Rooms </option>
                         
                         </select>
                     </div>
-                    <div class="col s3" style = "margin-left: 10%; margin-top: -5%;">
+                    <div class="col s2" style = "margin-left: 10%; margin-top: -5%;">
                         <h4>Home Type</h4>
-                        <select id="type" placeholder="15 year " class="selectpicker" multiple>
+                        <select id="type" placeholder="15 year" class="selectpicker" data-width="fit"  multiple> 
                             <option value="condo"> Condo </option>
                             <option value="townhouse"> Town House </option>
-                        
                         </select>
                     
+                    </div>
+
+                    <div class="col s2" style="margin-top: -5%; margin-left: 10%;">
+                        <h4>Neighborhood</h4>
+                        <select id="nhrc" placeholder="pick a Neighborhood" class="selectpicker" data-width="fit" multiple>
+                        
+
+                        </select>
                     </div>
 
                     <div class="col s3" style="margin-left: 10%; margin-top: -5%;">
                         
                     
                     </div>
+                    </div>
+
+                    <div id = "results-table" style="margin-left: 2%; margin-top: 5%;"> 
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Neighborhood</th>
+                                    <th>Type</th>
+                                    <th>Bed</th>
+                                    <th>Price</th>
+                                    <th>Down </th>
+                                    <th>Closing Cost</th>
+                                    <th>Dollar to Cost</th>
+                                    <th> Mortgage</th>
+                                    <th>Maintenance</th>
+                                    <th>Tax</th>
+                                    <th>Insurance</th>
+                                    <th>Mortgage Payment </th>
+                                    <th>Montly Cost</th>
+                                    <th>Tax Saving</th>
+                                    <th>Yearly Cost</th>
+                                    <th>Expense Ratio</th>
+                                </tr>
+                            </thead>
+                            <tbody id ="table-body">
+                         
+                            </tbody>
+                        </table>
+
+                    </div>
                     
                     
                        
                         
-                        
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
 
         
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-        
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />

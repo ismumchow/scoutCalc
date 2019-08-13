@@ -5,17 +5,26 @@ $(function () {
 
 $('.brand-logo').css({ marginTop: '-=15px' });
 
+$('#results-table').hide();
+
 // var regex = new Regex(@"^-?[0-9][0-9,\.]+$");
 
 
 
 var userSelection  = [];
-var income = 0;
-var downPayment = 0; 
-var interestRate = 0.0; 
-var estClosingCost = 0; 
+var income = 100000;
+var downPayment = .2; 
+var interestRate = 0.03; 
+var estClosingCost = 0.035; 
 var mortgageType = 15;
 var queryURL = ""; 
+var resultsDiv = $("#results-table");
+var tbody = $("#table-body");
+
+var tr = ("<tr>"); 
+var td = ("<td>"); 
+
+
 
 
 
@@ -116,8 +125,42 @@ $('#submit-btn').click(function (e) {
         type: 'GET',
         dataType: 'json', // added data type
         success: function (res) {
-            console.log(res.json());
+
+            $('#results-table').show();
+            $('#result-card').css ("height", "auto");
+
+
+            const len = res.length; 
+            console.log(len); 
+
             alert('function worked');
+            for (var i  = 0; i < len; i ++) {
+           // console.log("the neighbor hood is" + res[i].neighborhood + "the type is " + res[i].type_);
+                
+                 var tabRow =  $('<tr>'); 
+                 tabRow
+                .append($('<td>').append(res[i].neighborhood))
+                .append($('<td>').append(res[i].type_))
+                .append($('<td>').append(res[i].bed)) 
+                .append($('<td>').append(res[i].price))
+                .append($('<td>').append(res[i].down))
+                .append($('<td>').append(res[i].closing_costs))
+                .append($('<td>').append(res[i].dollar_to_cost))
+                .append($('<td>').append(res[i].mortgage)) 
+                .append($('<td>').append(res[i].maintenance))
+                .append($('<td>').append(res[i].tax))
+                .append($('<td>').append(res[i].insurance))
+                .append($('<td>').append(res[i].mortgage_pmt)) 
+                .append($('<td>').append(res[i].monthly_cost))
+                .append($('<td>').append(res[i].tax_saving))
+                .append($('<td>').append(res[i].yearly_cost))
+                .append($('<td>').append(res[i].expense_ratio));
+
+
+                tbody.append(tabRow);
+            
+            }
+            
         }
     })
 
