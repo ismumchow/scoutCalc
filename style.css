@@ -51,13 +51,19 @@
     background-color: #f1f1f1;
 }
 
+.jakson {
+     justify-content: center;
+     flex-wrap: wrap ;
+     align-self: auto;
+    
+}
+
+.align {
+    text-align: center;
+}
 
 
-/* .jakson {
-      display: flex;
-       justify-content: center;
-
-} */
-
-
+.btn-group.bootstrap-select.show-tick {
+    margin-bottom: 10px;
+}
 
