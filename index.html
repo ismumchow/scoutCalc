@@ -32,7 +32,7 @@
         <div class="grid text-center jakson ">
 
             <div class="row">
-                <div id="form" class="col s3 card-panel hoverable" style=" margin-left:5%; margin-top: 2%; height: 80vh;">
+                <div id="form" class="col s3 card-panel hoverable" style=" margin-left:38%; margin-top: 2%; height: 80vh;">
                             <div class="row" style=" margin-top:5%;"> 
                             <h3>Select Neighborhood</h3>
                             <select id="nhdd" class="selectpicker img-rounded" data-live-search="true" multiple>
@@ -40,19 +40,20 @@
                             </div>
                             <div class="row">
                                     <h4>Income: </h4>
-                                    <input id="income" class="form-control center-align" type="text" placeholder="$100,000" >
+                                    <input id="income" class="form-control center-align" type="text" placeholder="$100,000" onkeypress="return isNumber(event)" >
                             </div>
                             <div class="row">
                                     <h4>Down Payment</h4>
-                                    <input id="downpayment" class="form-control center-align" type="text" placeholder="$100,000">
+                                    <input id="downpayment" class="form-control center-align" type="text" placeholder="20%" onkeypress="return isNumber(event)" >
                             </div>
                             <div class="row">
                                     <h4>Interest Rate</h4>
-                                    <input id="interestrate" class="form-control center-align" type="text" placeholder="3.0%" >
+                                    <input id="interestrate" class="form-control center-align" type="text" placeholder="3%" onkeypress="return isNumber(event)" >
                             </div>
                             <div class="row">
                                     <h4>Estimated Closing Costs</h4>
-                                    <input id="ecc" class="form-control center-align" type="text" placeholder="$200,000" >
+                                    <input id="ecc" class="form-control center-align" type="text" placeholder="2%"
+                                    onkeypress="return isNumber(event)">
                             </div>
                             <div class="row">
                                     <h4>Mortgage Type</h4>
@@ -69,28 +70,28 @@
                 </div>
                 <div id="results" class="col s8">
                     <div id="result-card" class=" card-panel hoverable text-center" style=" margin-left:5%; margin-top: 30px; height: auto ;"> 
-                    <h3 id="filter"> Filters</h3>
                     <br/> 
                     <br/> 
                     <div id="storage" class="row"> 
-                            <div id="brcolumn" class ="col s2" style = "margin-top: -5%;"> 
+
+                            <div id="nhcolumn" class="col s2" style="margin-top: -5%; margin-left: 8%;">
+                                <h4>Neighborhood</h4>
+                                <select id="newnhdd0" class="selectpicker img-rounded" data-live-search="true">
+                                </select>
+                            </div>
+                            <div id="brcolumn" class ="col s2" style = "margin-top: -5%;  margin-left: 10%"> 
                                 <h4>Bed Rooms</h4>
-                                    <select id="br" placeholder="15 year " class="selectpicker" data-width="fit" multiple  >
+                                    <select id="br0" placeholder="15 year " class="selectpicker" data-width="fit">
                                         <option value=1> 1 Bed Room</option>
                                         <option value=2> 2 Bed Rooms </option>
-                                    
+
                                     </select>
                             </div>
-                            <div id="homecolumn" class="col s2" style = "margin-left: 10%; margin-top: -5%;">
-                                    <h4>Home Type</h4>
-                                        <select id="type" placeholder="15 year" class="selectpicker" data-width="fit"  multiple > 
+                            <div id="homecolumn" class="col s1" style = "margin-left: 2%; margin-top: -5%;">
+                                    <h4>Type</h4>
+                                        <select id="type0" placeholder="15 year" class="selectpicker" data-width="fit"> 
+                                            <option value="coop"> Coop </option>
                                             <option value="condo"> Condo </option>
-                                            <option value="townhouse"> Town House </option>
-                                        </select>
-                            </div>
-                            <div id="nhcolumn" class="col s2" style="margin-top: -5%; margin-left: 10%;">
-                                    <h4>Neighborhood</h4>
-                                        <select id="newnhdd" class="selectpicker img-rounded" data-live-search="true" multiple>
                                         </select>
                             </div>
                             
@@ -102,7 +103,7 @@
                                         <a  id = "minusbtn" class="btn-floating waves-effect waves-light red"><div style= "font-size:50px;margin-top:-2px;">-</div></a>
                                     </div>
                                     <div class="col s1" style="margin-left: 10%;margin-top: -1%;">
-                                        <button id="submit-btn" class="btn waves-effect waves-light" type="submit" name="action"> Submit</button>
+                                        <button id="nsubmit-btn" class="btn waves-effect waves-light" type="submit" name="action"> Submit</button>
                                     </div>
                             </div>
                     </div>
@@ -132,13 +133,9 @@
                             <tbody id ="table-body">
                          
                             </tbody>
-                        </table>
+                             </table>
 
-                    </div>
-                    
-                    
-                       
-                        
+                            </div>
                         </div>
                     </div>
                 </div>

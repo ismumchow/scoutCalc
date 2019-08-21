@@ -1,12 +1,15 @@
 
 $('.brand-logo').css({ marginTop: '-=15px' });
+$('#results').hide();
 
 $('#results-table').hide();
 
-// var regex = new Regex(@"^-?[0-9][0-9,\.]+$");
-
-
 let package = new Object ();
+let userChoice = [{
+    neighborhood : "", 
+    type_ : "", 
+    bed : "", 
+}];
 var newnh = [];
 var refarr = [];
 var income = 100000;
@@ -17,6 +20,22 @@ var mortgageType = 15;
 var queryURL = ""; 
 var resultsDiv = $("#results-table");
 var tbody = $("#table-body");
+
+var briteration = 0;
+var homeiteration = 0;
+var nhiteration = 0;
+
+var br = "br0";
+var type = "type0";
+var newnhdd = "newnhdd0"; 
+
+var brval;
+var typeval;
+var nndhdval; 
+
+
+var numberOfRows = 0;
+
 
 var userSelection;
 
@@ -31,13 +50,14 @@ var neighborhoods = [{ "Neighborhood": "Annadale" },
  var dropdown = $("#nhdd"); 
 
     for (var i = 0; i < nhlength; i++) {
-         dropdown.append(
-        "<option value=" + neighborhoods[i].Neighborhood + ">" + neighborhoods[i].Neighborhood + "</option>" );
+        // console.log(neighborhoods[i].Neighborhood);
+        dropdown.append(
+        "<option value='" + neighborhoods[i].Neighborhood + "'>" + neighborhoods[i].Neighborhood + "</option>" );
          }
-
+         
     $('.selectpicker').change(function () {
-        var selectedItem = $('.selectpicker').val();
-        console.log( "Selected item neighborhoods are val is " + selectedItem + " ");
+        var selectedItem = $('#nhdd').val();
+        console.log( selectedItem);
         userSelection = selectedItem;
     });
 
@@ -48,13 +68,7 @@ var neighborhoods = [{ "Neighborhood": "Annadale" },
 
     $('#submit-btn').click(function (e) {
 
-            // var newdd = $("#newnhdd");
-
-            // for (var i = 0; i < userSelection.length; i++) {
-            //     newdd.append($(
-            //         '<option value="' + userSelection[i] + '">' + userSelection[i] + '</option>'));
-            // }
-
+        
         $("#form").slideToggle("slow");
         $("#results").removeClass("s8").addClass("s11");
         $("#results").css("margin-left", "2%");
@@ -66,9 +80,9 @@ var neighborhoods = [{ "Neighborhood": "Annadale" },
         
         income = $("#income").val(); 
 
-        downPayment = $("#downpayment").val(); 
-        interestRate = $("#interestrate").val(); 
-        estClosingCost = $("#ecc").val(); 
+        downPayment = $("#downpayment").val() * .01; 
+        interestRate = $("#interestrate").val() * .01 ; 
+        estClosingCost = $("#ecc").val() * .01; 
 
 
         console.log("user selection is" + userSelection);
@@ -94,7 +108,7 @@ var neighborhoods = [{ "Neighborhood": "Annadale" },
                 type: 'GET',
                 dataType: 'json', // added data type
                 success: function (res) {
-
+                    $('#results').show();
                     $('#results-table').show();
                     $('#result-card').css ("height", "auto");
 
@@ -110,7 +124,7 @@ var neighborhoods = [{ "Neighborhood": "Annadale" },
                     for(let i=0;i<refarr.length;i++){
                         temp += '<option value="'+ refarr[i] +'">'+ refarr[i] +'</option>';
                     }
-                    $('#newnhdd').append(temp);
+                    $('#newnhdd0').append(temp);
                     $('select').selectpicker('refresh');
                     
 
@@ -138,6 +152,95 @@ var neighborhoods = [{ "Neighborhood": "Annadale" },
                         tbody.append(tabRow);
                     
                         }
+
+                        $('#nsubmit-btn').click(function (e) {
+
+
+                            $(tbody).empty();
+
+                            console.log("new button worked")
+
+                                        let bedRoomId = "br0";
+                                        let neighborId = "newnhdd0"; 
+                                        let typeId = "type0";
+
+                            
+
+                                    
+                                        itlength = numberOfRows +1; 
+
+                                    for (var i = 0; i < itlength; i++) {
+
+                                        if (!(bedRoomId.slice(-1) === "r")) {
+                                            bedRoomId = bedRoomId.slice(0, -1);
+                                        }
+                                        if (!(neighborId.slice(-1) === "d")) {
+                                            neighborId = neighborId.slice(0, -1);
+                                        }
+                                        if (!(type.slice(-1) === "e")) {
+                                            typeId = typeId.slice(0, -1);
+
+                                        }
+                                     
+                                        bedRoomId += i;
+                                        neighborId += i;
+                                        typeId += i;
+
+                                        console.log(bedRoomId);
+                                        console.log(neighborId);
+                                        console.log(typeId);
+
+                                       let brRef = "#" + bedRoomId; 
+                                       let ngbhdRef = "#" + neighborId; 
+                                       let typeRef  = "#" + typeId;
+
+                          
+                                        let userBrVal = $(brRef).val(); 
+                                        let userTypeVal = $(typeRef).val(); 
+                                        let userNhVal = $(ngbhdRef).val();  
+
+                                        console.log (userBrVal); 
+                                        console.log(userTypeVal); 
+                                        console.log(userNhVal); 
+
+                                        for (var j = 0; j <package.length; j++) {
+
+                                            if (userBrVal == package[j].bed && userTypeVal == package[j].type_ && userNhVal == package[j].neighborhood) {
+
+                                                console.log("value is in the package");
+
+                                                var tabRow = $('<tr>');
+                                                tabRow
+                                                    .append($('<td class="align" val ="neighborhood">').append(package[j].neighborhood))
+                                                    .append($('<td class="align" val ="type_">').append(package[j].type_))
+                                                    .append($('<td class="align" val ="bed">').append(package[j].bed))
+                                                    .append($('<td class="align" val ="price">').append(package[j].price))
+                                                    .append($('<td class="align" val ="down">').append(package[j].down))
+                                                    .append($('<td class="align" val ="closing_costs">').append(package[j].closing_costs))
+                                                    .append($('<td class="align" val ="dollar_to_cost">').append(package[j].dollar_to_cost))
+                                                    .append($('<td class="align" val ="mortgage">').append(package[j].mortgage))
+                                                    .append($('<td class="align" val ="maintenance">').append(package[j].maintenance))
+                                                    .append($('<td class="align" val ="tax">').append(package[j].tax))
+                                                    .append($('<td class="align" val ="insurance">').append(package[i].insurance))
+                                                    .append($('<td class="align" val ="mortgage_pmt">').append(package[j].mortgage_pmt))
+                                                    .append($('<td class="align" val ="monthly_cost">').append(package[j].monthly_cost))
+                                                    .append($('<td class="align" val ="tax_saving">').append(package[j].tax_saving))
+                                                    .append($('<td class="align" val ="yearly_cost">').append(package[j].yearly_cost))
+                                                    .append($('<td class="align" val ="expense_ratio">').append(package[j].expense_ratio));
+
+                                                tbody.append(tabRow);
+
+                                             }
+                                        }
+                                        
+
+                                       
+
+                                    }
+                           
+                        })
+
+                        return package;
                     
                     }
 
@@ -146,27 +249,51 @@ var neighborhoods = [{ "Neighborhood": "Annadale" },
     });
 
 
-
-    
-
 $('#addbtn').click(function (e) { 
 
-     console.log("button cliked");
+    numberOfRows++; 
 
-     let br_clone = $('#br').clone();
-     let home_clone = $('#type').clone();
-     let nh_clone = $('#newnhdd').clone();
+    if (!(br.slice(-1) === "r")) {
+        br = br.slice(0, -1);
+    }
+    if (!(newnhdd.slice(-1) === "d")) {
+        newnhdd = newnhdd.slice(0, -1);
+    }
+
+     if (!(type.slice(-1)==="e")) {
+         type = type.slice(0, -1);
+     }
+
+    br += ++briteration;
+    type += ++homeiteration;
+    newnhdd += ++nhiteration;
+
+     console.log(br); 
+     console.log(type); 
+     console.log(newnhdd); 
+
+
+     console.log("button clicked");
+
+     let br_clone = $('#br0').clone();
+     br_clone.attr("id", br)
+     let home_clone = $('#type0').clone();
+     home_clone.attr("id", type)
+     let nh_clone = $('#newnhdd0').clone();
+     nh_clone.attr("id",newnhdd);
+     
 
      $("#brcolumn").append(br_clone);
      $("#homecolumn").append(home_clone);
      $("#nhcolumn").append(nh_clone);
      $('select').selectpicker('refresh');
 
-
-
 })
 
 $('#minusbtn').click(function(e){
+
+    numberOfRows--; 
+
     if($('#brcolumn div.btn-group').length > 1){
         $('#brcolumn div.btn-group:last-child').remove();
     }
@@ -176,10 +303,22 @@ $('#minusbtn').click(function(e){
     if($('#nhcolumn div.btn-group').length > 1){
         $('#nhcolumn div.btn-group:last-child').remove();
     }
-})
+    })
 
     var arrayUnique = function (arr) {
         return arr.filter(function(item, index){
             return arr.indexOf(item) >= index;
         });
     };
+
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46) {
+        return false;
+    }
+    return true;
+}
+
+
+
