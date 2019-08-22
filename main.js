@@ -70,8 +70,8 @@ var neighborhoods = [{ "Neighborhood": "Annadale" },
 
         
         $("#form").slideToggle("slow");
-        $("#results").removeClass("s8").addClass("s11");
-        $("#results").css("margin-left", "2%");
+        $("#results").removeClass("s8").addClass("s12");
+        // $("#results").css("margin-left", "2%");
         $("#filter").css("padding", "2%");
         $("#filter").css("margin-top", "-1%");
         $("#result-card").css("height", "87vh");
@@ -98,7 +98,7 @@ var neighborhoods = [{ "Neighborhood": "Annadale" },
         var est = Number(estClosingCost);
         var mort = Number(mortgageType); 
 
-        var queryURL = "https://s2-dot-scout-243315.appspot.com/prototype/" + arrayString + "/" + "coop&condo/1&2"+ "/" + inc + "/" + dp + "/" + ir + "/" + est + "/" + mort; 
+        var queryURL = "https://s2-dot-scout-243315.appspot.com/prototype/" + arrayString + "/" + "coop&condo&townhouse&multi family/1&2&3&4&5" + "/" + inc + "/" + dp + "/" + ir + "/" + est + "/" + mort; 
 
         console.log(queryURL);       
         

@@ -31,8 +31,8 @@
         
         <div class="grid text-center jakson ">
 
-            <div class="row">
-                <div id="form" class="col s3 card-panel hoverable" style=" margin-left:38%; margin-top: 2%; height: 80vh;">
+            <div class="row custom_container" style="">
+                <div id="form" class="col s3 card-panel hoverable" style=" margin-left:38%; margin-top: 2%; height: 750px;">
                             <div class="row" style=" margin-top:5%;"> 
                             <h3>Select Neighborhood</h3>
                             <select id="nhdd" class="selectpicker img-rounded" data-live-search="true" multiple>
@@ -69,7 +69,7 @@
                             </div>
                 </div>
                 <div id="results" class="col s8">
-                    <div id="result-card" class=" card-panel hoverable text-center" style=" margin-left:5%; margin-top: 30px; height: auto ;"> 
+                    <div id="result-card" class=" card-panel hoverable text-center" style=" height: auto ;padding-top: 40px;"> 
                     <br/> 
                     <br/> 
                     <div id="storage" class="row"> 
@@ -81,17 +81,22 @@
                             </div>
                             <div id="brcolumn" class ="col s2" style = "margin-top: -5%;  margin-left: 10%"> 
                                 <h4>Bed Rooms</h4>
-                                    <select id="br0" placeholder="15 year " class="selectpicker" data-width="fit">
-                                        <option value=1> 1 Bed Room</option>
-                                        <option value=2> 2 Bed Rooms </option>
+                                    <select id="br0" placeholder="15 year " class="selectpicker">
+                                    <option value=1> 1 Bed Room</option>
+                                    <option value=2> 2 Bed Rooms </option>
+                                    <option value=3> 3 Bed Room</option>
+                                    <option value=4> 4 Bed Rooms </option>
+                                    <option value=5> 5 Bed Rooms </option>
 
                                     </select>
                             </div>
                             <div id="homecolumn" class="col s1" style = "margin-left: 2%; margin-top: -5%;">
                                     <h4>Type</h4>
-                                        <select id="type0" placeholder="15 year" class="selectpicker" data-width="fit"> 
+                                        <select id="type0" placeholder="15 year" class="selectpicker"> 
                                             <option value="coop"> Coop </option>
                                             <option value="condo"> Condo </option>
+                                            <option value="singlefamily"> Single Family</option>
+                                            <option value="multi family"> Multi-Family</option>
                                         </select>
                             </div>
                             
@@ -108,8 +113,8 @@
                             </div>
                     </div>
 
-                    <div id = "results-table" style="margin-left: 2%; margin-top: 5%;"> 
-                        <table>
+                    <div id = "results-table" style=""> 
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>Neighborhood</th>
